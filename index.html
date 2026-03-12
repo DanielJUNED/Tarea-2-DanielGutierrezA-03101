@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CI/CD Demo - Administración de Sitios Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <nav>
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="18" stroke="#1565C0" stroke-width="2.5"/>
+          <path d="M13 12 Q20 6 27 12 Q34 18 27 24 Q20 30 13 24 Q6 18 13 12Z" fill="#1565C0" opacity="0.15"/>
+          <line x1="20" y1="4" x2="20" y2="36" stroke="#1565C0" stroke-width="1.5"/>
+          <line x1="4" y1="20" x2="36" y2="20" stroke="#1565C0" stroke-width="1.5"/>
+        </svg>
+        Administración de Sitios Web
+        <span class="logo-badge">CI/CD</span>
+      </div>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#que-es">Conceptos</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#contacto">Proyecto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── STATUS BAR ── -->
+  <div class="status-bar">
+    <div class="status-item"><div class="dot-green"></div> workflow: passing</div>
+    <div class="status-item"><div class="dot-white"></div> branch: main</div>
+    <div class="status-item"><div class="dot-orange"></div> deploy: github-pages</div>
+    <div class="status-item"><div class="dot-green"></div> html: valid</div>
+  </div>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <div class="dot-green"></div>
+          03102 – Administración de Sitios Web &nbsp;·&nbsp; 2026
+        </div>
+        <h1>Integración y<br><span>Despliegue</span> Continuo</h1>
+        <p class="hero-sub">
+          Sitio de demostración para la <strong>Tarea No.2</strong> —
+          automatización del ciclo de vida de un sitio web con GitHub Actions.
+        </p>
+        <div class="btn-group">
+          <a href="#que-es" class="btn btn-primary">Explorar conceptos</a>
+          <a href="#pipeline" class="btn btn-outline">Ver pipeline →</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider"/>
+
+    <!-- ── QUÉ ES CI/CD ── -->
+    <section id="que-es" class="section section-light">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// conceptos</div>
+          <h2>¿Qué es CI/CD?</h2>
+          <p class="section-desc">Tres pilares que transforman cómo se entrega software a producción.</p>
+        </div>
+        <div class="cards">
+          <div class="card reveal">
+            <div class="card-icon">🔄</div>
+            <h3>Integración Continua (CI)</h3>
+            <p>Automatiza la integración de cambios de código de múltiples colaboradores en un repositorio compartido de manera frecuente y segura.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">📦</div>
+            <h3>Entrega Continua (CD)</h3>
+            <p>Extiende CI para automatizar la entrega de aplicaciones a los entornos seleccionados, garantizando versiones siempre listas para producción.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">🌐</div>
+            <h3>Despliegue Continuo</h3>
+            <p>Todo cambio validado se despliega automáticamente en producción, eliminando intervención manual y acelerando el ciclo de entrega.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider"/>
+
+    <!-- ── PIPELINE ── -->
+    <section id="pipeline" class="section section-tinted">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// pipeline</div>
+          <h2>Etapas del Pipeline CI/CD</h2>
+          <p class="section-desc">Cada <code>git push</code> desencadena esta secuencia automáticamente.</p>
+        </div>
+        <div class="pipe-line"></div>
+        <div class="pipeline-track">
+          <div class="step-wrap">
+            <div class="step reveal">
+              <div class="step-num">1</div>
+              <h4>Código</h4>
+              <p>Desarrollador hace push al repositorio</p>
+            </div>
+          </div>
+          <div class="pipe-arrow">→</div>
+          <div class="step-wrap">
+            <div class="step reveal">
+              <div class="step-num">2</div>
+              <h4>Build</h4>
+              <p>Se compila y construye el proyecto</p>
+            </div>
+          </div>
+          <div class="pipe-arrow">→</div>
+          <div class="step-wrap">
+            <div class="step reveal">
+              <div class="step-num">3</div>
+              <h4>Test</h4>
+              <p>Validación HTML y pruebas automatizadas</p>
+            </div>
+          </div>
+          <div class="pipe-arrow">→</div>
+          <div class="step-wrap">
+            <div class="step reveal">
+              <div class="step-num">4</div>
+              <h4>Deploy</h4>
+              <p>Despliegue automático en GitHub Pages</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider"/>
+
+    <!-- ── BENEFICIOS ── -->
+    <section id="beneficios" class="section section-light">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// ventajas</div>
+          <h2>Ventajas de la Automatización</h2>
+          <p class="section-desc">Por qué CI/CD mejora cada aspecto del desarrollo web.</p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-item reveal">
+            <div class="benefit-check">✓</div>
+            <span><strong>Reduce errores humanos</strong> en el proceso de despliegue</span>
+          </div>
+          <div class="benefit-item reveal">
+            <div class="benefit-check">✓</div>
+            <span><strong>Acelera la entrega</strong> de nuevas funcionalidades al usuario</span>
+          </div>
+          <div class="benefit-item reveal">
+            <div class="benefit-check">✓</div>
+            <span><strong>Detecta errores tempranamente</strong> antes de llegar a producción</span>
+          </div>
+          <div class="benefit-item reveal">
+            <div class="benefit-check">✓</div>
+            <span><strong>Facilita la colaboración</strong> en equipos distribuidos</span>
+          </div>
+          <div class="benefit-item reveal">
+            <div class="benefit-check">✓</div>
+            <span><strong>Mejora la calidad</strong> y estabilidad del sitio web</span>
+          </div>
+          <div class="benefit-item reveal">
+            <div class="benefit-check">✓</div>
+            <span><strong>Auditoría completa</strong> del historial de cambios con Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider"/>
+
+    <!-- ── CONTACTO ── -->
+    <section id="contacto" class="section section-tinted">
+      <div class="container">
+        <div class="contact-box reveal">
+          <h2>Proyecto Académico</h2>
+          <p>Tarea No.2 – CI/CD con GitHub Actions</p>
+          <p>03102 – Administración de Sitios Web · 2026</p>
+          <div class="contact-tags">
+            <span class="tag blue">GitHub Actions</span>
+            <span class="tag orange">GitHub Pages</span>
+            <span class="tag blue">html5validator</span>
+            <span class="tag dark">HTML5 / CSS3</span>
+            <span class="tag orange">CI/CD Pipeline</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>© 2026 – Demostración CI/CD | Automatizado con <span>GitHub Actions</span></p>
+  </footer>
+
+  <script src="js/index.js"></script>
+</body>
+</html>
