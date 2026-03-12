@@ -1,0 +1,71 @@
+# ================================================
+# GitHub Actions Workflow – CI/CD Pipeline
+# Curso: 03102 Administración de Sitios Web
+# Tarea #2
+# ================================================
+#
+# Este workflow se activa cada vez que se hace push
+# a la rama 'master'. Realiza:
+#   1. Validación del HTML con html5validator
+#   2. Despliegue automático en GitHub Pages
+
+name: CI/CD – Validar y Desplegar Sitio Web
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+
+  validar-html:
+    name: 🔍 Validar HTML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Instalar html5validator
+        run: pip install html5validator
+
+      - name: Validar archivos HTML
+        run: html5validator --root . --also-check-css --log INFO
+
+  desplegar:
+    name: Desplegar en GitHub Pages
+    runs-on: ubuntu-latest
+    needs: validar-html
+    if: github.ref == 'refs/heads/master'
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir artefacto del sitio
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
